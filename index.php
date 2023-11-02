@@ -46,6 +46,7 @@ $result = $connection->query($sql);
                         echo "<td> 
                                 <a class='btn btn-primary btn-sm' href='edit.php?id={$row['RezeptID']}'>Edit</a>
                                 <a class='btn btn-danger btn-sm' href='delete.php?id={$row['RezeptID']}'>Delete</a>
+                                <a class='btn btn-primary btn-sm' href='view.php?id={$row['RezeptID']}'>Ansehen</a>
                             </td>";
                         echo "</tr>";
                     }

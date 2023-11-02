@@ -63,6 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             ";
         }
+        if (!empty($successMessage)) {
+            echo "
+            <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                <strong>$successMessage</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            </div>
+            ";
+        }
         ?>
         <form method="post">
             <div class="row mb-3">
@@ -91,16 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     ?>
                 </div>
             </div>
-            <?php
-            if (!empty($successMessage)) {
-                echo "
-                <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                    <strong>$successMessage</strong>
-                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-                </div>
-                ";
-            }
-            ?>
             <div class="row mb-3">
                 <div class="col-sm-3 d-grid">
                     <button type="submit" class="btn btn-primary">Speichern</button>
@@ -110,6 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
         </form>
+        <a class="btn btn-primary" href="add-zutat.php">Zutat hinzufügen</a>
     </div>
 </body>
 </html>
