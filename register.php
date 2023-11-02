@@ -1,4 +1,6 @@
 <?php
+include 'db-config.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get user input from the registration form
     $username = $_POST["username"];
@@ -7,11 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the password using Bcrypt
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    // Insert the user data into the database
-    $conn = new mysqli("localhost", "root", "root", "noodle_dhbw");
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
     }
 
     $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
@@ -24,6 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt->close();
-    $conn->close();
+    $connection->close();
 }
 ?>
