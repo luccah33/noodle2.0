@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "noodle";
+$database = "noodle_dhbw";
 
 $connection = new mysqli($servername, $username, $password, $database);
 

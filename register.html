@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <style>
+        body {
+            background-image: url("img/Hintergrundlogin.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.0); /* Hintergrundfarbe auf transparent setzen */
+            border-radius: 15px;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+            position: relative;
+            font-size: 2em; /* Text doppelt so groß machen */
+        }
+        h1::before {
+            content: "";
+            /*background-image: url("/img/Transparent.png"); Man kann mit PHP keine PNGs laden...*/
+            display: block;
+            width: 400px; /* Doppelt so groß wie zuvor */
+            height: 400px; /* Doppelt so groß wie zuvor */
+            margin: 0 auto 20px; /* Abstand zum Schriftzug */
+            background-size: cover;
+        }
+        label {
+            font-weight: bold; /* Dicker Text */
+            color: white; /* Weiß */
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            margin: 10px 0;
+            background-color: rgba(255, 255, 255, 0.5); /* Weiß mit 50% Transparenz */
+            color: black; /* Textfarbe auf Schwarz setzen */
+            border-radius: 10px; /* Abrunden der Loginfelder */
+        }
+        .register-button {
+            background-color: #FFA500; /* Hellorange */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h1></h1>
+        <form action="register.php" methode="POST">
+            <label for="username" style="font-size: 2.5em; color: white; font-weight: bold;">Benutzername:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="password" style="font-size: 2.5em; color: white; font-weight: bold;">Passwort:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit" class="register-button">Register</button>
+        </form>
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/4776642ff7.js" crossorigin="anonymous"></script>
+</html>

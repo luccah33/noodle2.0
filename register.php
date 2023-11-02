@@ -1,28 +1,26 @@
 <?php
 include 'db-config.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get user input from the registration form
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    // Hash the password using Bcrypt
+    // Hash the password with bcrypt
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    if ($connection->connect_error) {
-        die("Connection failed: " . $connection->connect_error);
-    }
-
+    // Insert user into the database
     $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
     $stmt->bind_param("ss", $username, $hashedPassword);
 
     if ($stmt->execute()) {
-        echo "Registration successful!";
+        header('Location: register.php');
     } else {
-        echo "Registration failed.";
+        echo "Registration failed. Please try again.";
     }
 
     $stmt->close();
-    $connection->close();
 }
+    $connection->close();
+
 ?>
+

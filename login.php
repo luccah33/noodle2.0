@@ -1,27 +1,26 @@
 <?php
 include 'db-config.php';
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get user input from the login form
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    if ($connection->connect_error) {
-        die("Connection failed: " . $connection->connect_error);
-    }
-
-    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
+    // Retrieve user's hashed password from the database
+    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
-    $stmt->bind_result($hashedPassword);
-    $stmt->fetch();
+    $stmt->bind_result($id, $dbUsername, $dbPassword);
 
-    if (password_verify($password, $hashedPassword)) {
-        echo "Login successful!";
+    if ($stmt->fetch() && password_verify($password, $dbPassword)) {
+        session_start();
+        $_SESSION['user_id'] = $id;
+        $_SESSION['username'] = $dbUsername;
+        header('Location: welcome.php');
     } else {
-        echo "Login failed.";
+        echo "Login failed. Please check your credentials.";
     }
 
     $stmt->close();
     $connection->close();
 }
 ?>
+
