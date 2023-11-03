@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Zubereitung:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="Zubereitungstext" value="<?php echo $Zubereitungstext; ?>">
+                    <textarea rows="4" cols="50" name="Zubereitungstext"><?php echo $Zubereitungstext; ?></textarea>
                 </div>
             </div>
             <div class="row mb-3">
