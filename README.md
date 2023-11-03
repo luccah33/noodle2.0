@@ -31,6 +31,7 @@ CREATE TABLE items (
     item_name VARCHAR(255) NOT NULL,
     item_quantity INT NOT NULL
 );
+
 -- Tabelle fuer User
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
