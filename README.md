@@ -23,3 +23,17 @@ CREATE TABLE rezept_zutat (
     FOREIGN KEY (RezeptID) REFERENCES rezepte(RezeptID),
     FOREIGN KEY (ZutatID) REFERENCES zutaten(ZutatID)
 );
+
+--Tabelle fuer Einkaufslistenitems
+CREATE TABLE items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    item_name VARCHAR(255) NOT NULL,
+    item_quantity INT NOT NULL
+);
+-- Tabelle fuer User
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
