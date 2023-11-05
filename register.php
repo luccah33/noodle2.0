@@ -1,5 +1,6 @@
 <?php
 include 'db-config.php';
+include('template.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];

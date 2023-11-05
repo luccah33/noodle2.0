@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
         $_SESSION['user_id'] = $id;
         $_SESSION['username'] = $dbUsername;
-        header('Location: welcome.html');
+        header('Location: welcome.php');
     } else {
         echo "Login failed. Please check your credentials.";
     }

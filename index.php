@@ -1,5 +1,6 @@
 <?php
 include 'db-config.php';
+include('template.php');
 
 // Abfrage, um alle Rezepte mit ihren Zutaten zu erhalten
 $sql = "SELECT r.RezeptID, r.Name, r.Zubereitungstext, GROUP_CONCAT(z.Zutat SEPARATOR ', ') AS Zutaten
@@ -14,6 +15,15 @@ $result = $connection->query($sql);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffcc80 !important;
+            font-family: 'Lilita One', sans-serif !important;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noodle - Rezepte</title>

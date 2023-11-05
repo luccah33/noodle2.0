@@ -1,5 +1,7 @@
 <?php
 include 'db-config.php';
+include('template.php');
+
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
@@ -42,7 +44,7 @@ $connection->close();
 <body>
     <div class="container">
         <h1>Shopping List</h1>
-        <a href="logout.php" class="btn btn-danger">Logout</a>
+        <a class="btn btn-primary" href="additem.php">Ware hinzufügen</a>
         <table class="table">
             <thead>
                 <tr>
