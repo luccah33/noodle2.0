@@ -22,6 +22,7 @@ $result = $connection->query($sql);
         body {
             background-color: #ffcc80 !important;
             font-family: 'Lilita One', sans-serif !important;
+            font-weight: ligter;
         }
     </style>
     <meta charset="UTF-8">
@@ -32,8 +33,9 @@ $result = $connection->query($sql);
 <body>
     <div class="container my-5">
         <h2>Rezepte</h2>
-        <a class="btn btn-primary" href="create.php" role="button">Neues Rezept</a>
+        <a class="logout-button" href="create.php" role="button">Neues Rezept</a>
         <br>
+        <br />
         <table class="table">
             <thead>
                 <tr>
