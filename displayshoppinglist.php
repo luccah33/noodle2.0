@@ -1,8 +1,6 @@
 <?php
 include 'db-config.php';
-include('template.php');
-
-session_start();
+include 'template.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -10,9 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 
-if ($connection->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 $user_id = $_SESSION['user_id'];
 
@@ -37,8 +32,10 @@ $connection->close();
 
 <!DOCTYPE html>
 <html>
+<!DOCTYPE html>
+<html>
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <style>
@@ -51,13 +48,17 @@ $connection->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noodle - Rezepte</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"></head>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body>
     <div class="container">
         <h1>Shopping List</h1>
-        <a class="btn btn-primary" href="additem.php">Ware hinzufügen</a>
+        
+     <div>
         <table class="table">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Item Name</th>
                     <th>Quantity</th>
                 </tr>
@@ -65,12 +66,21 @@ $connection->close();
             <tbody>
                 <?php foreach ($shopping_list as $item) { ?>
                     <tr>
+                        <td><?= $item['id'] ?></td>
                         <td><?= $item['name'] ?></td>
-                        <td><?= $item['quantity']?></td>
+                        <td><?= $item['quantity']?></td>                  
+                        </td>
                     </tr>
                     <?php } ?>
+
                 </tbody>
                 </table>
+   
                 </div>
+                </div>
+                <div>
+        <a href="/noodle2.0/additem.php">
+        <button class="logout-button">Hinzufügen</button>
+        </div>
                 </body>
                 </html>

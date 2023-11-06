@@ -7,7 +7,7 @@
   <style>
     /* Allgemeine Stile f�r das zentrierte Layout */
     body {
-      background-color: #ffcc80; /* Helloranger Hintergrund */
+      background-color:#faed8c; /* Helloranger Hintergrund */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -69,6 +69,14 @@
       border-radius: 20px;
       padding: 10px 20px;
     }
+    .logout-button {
+      background-color: white;
+      color: orange;
+      font-family: 'Lilita One', sans-serif;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+    }
   </style>
 </head>
 <body>
@@ -83,7 +91,7 @@
   <a href="/noodle2.0/displayshoppinglist.php">
   <button>Shoppingliste</button>
 </a>
- 
+
  
      <a href="/noodle2.0/welcome.php"> <!-- hiersoll  mal wohl welcome.html stehen !-->
     <button>Home</button>
@@ -93,8 +101,15 @@
     <button>Kochen</button>
   </a>
   </div>
- 
-  <a href="/noodle2.0/logout.php">
-  <button class="logout-button">Logout</button>
+        <?php
+        require_once 'check_session.php';
+           if (isUserLoggedIn()) {
+                   echo '<a href="/noodle2.0/logout.php">
+          <button class="logout-button">Logout</button>';
+          } else {
+                   echo '<a href="/noodle2.0/Login.html">
+                        <button class="logout-button">Login</button>';
+          } ?>
+           
   </a>
 </div>

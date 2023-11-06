@@ -1,5 +1,11 @@
 <?php
 include 'db-config.php';
+session_start();
+
+// Function to check if the user is logged in
+function isUserLoggedIn() {
+    return isset($_SESSION['user']);
+}
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -14,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
         $_SESSION['user_id'] = $id;
         $_SESSION['username'] = $dbUsername;
+        $_SESSION['user'] = true;
         header('Location: welcome.php');
+        
     } else {
         echo "Login failed. Please check your credentials.";
     }
